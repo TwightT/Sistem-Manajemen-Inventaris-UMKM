@@ -1,0 +1,17 @@
+DELIMITER //
+CREATE TRIGGER set_tanggal_otomatis
+BEFORE INSERT ON Produk
+FOR EACH ROW
+BEGIN
+    SET NEW.brgTanggal = CURDATE();
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER update_tanggal_otomatis
+BEFORE UPDATE ON Produk
+FOR EACH ROW
+BEGIN
+    SET NEW.brgTanggal = CURDATE();
+END //
+DELIMITER ;
